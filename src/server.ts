@@ -5,15 +5,15 @@ const PORT = Number(process.env.PORT)
 
 const server = fastify({
   logger: {
-    // level: 'info',
-    // file: 'logs/server.log',
+    level: 'info',
+    file: 'logs/server.log',
     // Utilizar somente em modo de desenvolvimento
-    transport: {
-      target: 'pino-pretty',
-      options: {
-        colorize: true
-      }
-    }
+    // transport: {
+    //   target: 'pino-pretty',
+    //   options: {
+    //     colorize: true
+    //   }
+    // }
   }
 })
 
