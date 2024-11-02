@@ -1,0 +1,19 @@
+name: Continuous Integration
+
+on:
+  workflow_dispatch 
+  pull_request:
+    branches: [ 'main' ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      with:
+        node-version: [18.x, 20.x, 22.x]
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
