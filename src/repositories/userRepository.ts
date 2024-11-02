@@ -6,6 +6,6 @@ export async function getUsers(): Promise<IUserModel[] | null> {
     return response.data
   } catch (error) {
     console.error("Erro ao buscar usuários")
-    return null
+    throw new Error("Ocorreu um erro no servidor.")
   }
 }

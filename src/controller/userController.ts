@@ -7,7 +7,7 @@ export default async function userController(fastify: FastifyInstance) {
       const users = await getProcessedUsers();
       reply.send(users)
     } catch (error) {
-      console.error("Erro ao buscar usuarios", error);
+      reply.log.error("Erro ao buscar usuarios", error);
       reply.status(500).send({ error: 'Ocorreu um erro no servidor.' })
     }
   })
